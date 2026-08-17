@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Expense History</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>📋 Expense History</h1>
+
+
+    <div class="total-card">
+
+        <h2>Total Expense</h2>
+
+        <div class="total">
+            ₹ {{ total }}
+        </div>
+
+    </div>
+
+
+    {% if expenses %}
+
+    <div class="table-container">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>ID</th>
+                    <th>Shop</th>
+                    <th>Amount</th>
+                    <th>Date</th>
+                    <th>Category</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% for expense in expenses %}
+
+                <tr>
+
+                    <td>
+                        {{ expense.id }}
+                    </td>
+
+                    <td>
+                        {{ expense.shop }}
+                    </td>
+
+                    <td>
+                        ₹ {{ expense.amount }}
+                    </td>
+
+                    <td>
+                        {{ expense.date }}
+                    </td>
+
+                    <td>
+
+                        <span class="category">
+                            {{ expense.category }}
+                        </span>
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    {% else %}
+
+    <div class="empty">
+
+        <h2>📭 No Expenses Found</h2>
+
+        <p>
+            Upload your first receipt to add an expense.
+        </p>
+
+    </div>
+
+    {% endif %}
+
+
+    <div class="buttons">
+
+        <a href="/" class="btn">
+            ➕ Add New Expense
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

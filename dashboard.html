@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Expense Result</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>📊 Expense Details</h1>
+
+    <!-- Expense Details -->
+
+    <div class="card">
+
+        <div class="info">
+
+            <h3>🏪 Shop Name</h3>
+            <p>{{ shop }}</p>
+
+        </div>
+
+
+        <div class="info">
+
+            <h3>💰 Amount</h3>
+            <p class="amount">₹ {{ amount }}</p>
+
+        </div>
+
+
+        <div class="info">
+
+            <h3>📅 Date</h3>
+            <p>{{ date }}</p>
+
+        </div>
+
+
+        <div class="info">
+
+            <h3>📂 Category</h3>
+            <p>{{ category }}</p>
+
+        </div>
+
+    </div>
+
+
+    <!-- AI Analysis -->
+
+    <div class="ai-card">
+
+        <h2>🤖 AI Expense Analysis</h2>
+
+        <p>
+            {{ summary }}
+        </p>
+
+    </div>
+
+
+    <!-- OCR Text -->
+
+    <h2>🔍 OCR Extracted Text</h2>
+
+    <div class="ocr">
+
+        <pre>{{ text }}</pre>
+
+    </div>
+
+
+    <!-- Buttons -->
+
+    <div class="buttons">
+
+        <a href="/" class="btn">
+            📷 Scan Another Receipt
+        </a>
+
+        <a href="/history" class="btn secondary">
+            📋 View History
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
